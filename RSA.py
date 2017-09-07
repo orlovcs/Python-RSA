@@ -18,23 +18,20 @@ def primeCheck(prime):
   
         
 def publickeys():
-  p = input("Enter a large distinct prime p: ")
-  q = input("Enter a large distinct prime q: ")
-  if p!=q:
-    if primeCheck(p) and primeCheck(q):
-      e = input("Enter number e such that 1<e<(p-1)(q-1)")
-      if (1<e and e<phi(p, q)):
-        return (e,p,q)
-      else:
-        print("Error: e is invalid")
-        
-    
-    else:
-      print("Error: numbers are not primes")
-      
-  else:
-    print("Error: numbers are identical")
-    
+    p = input("Enter a large distinct prime p: ")
+    q = input("Enter a large distinct prime q: ")
+    p = int(p)
+    q = int(q)
+    while p==q or not primeCheck(p) or not primeCheck(q):
+
+      if p!=q:
+         print("Error: numbers are identical")
+      if not primeCheck(p) or not primeCheck(q):
+          print("Error: numbers are not primes")
+      p = input("Enter a large distinct prime p: ")
+      q = input("Enter a large distinct prime q: ")
+      p = int(p)
+      q = int(q)
     
 
     
