@@ -22,16 +22,34 @@ def publickeys():
     q = input("Enter a large distinct prime q: ")
     p = int(p)
     q = int(q)
-    while p==q or not primeCheck(p) or not primeCheck(q):
+    while p==q or not primeCheck(p) or not primeCheck(q) or p <=100 or q <= 100:
 
-      if p!=q:
-         print("Error: numbers are identical")
-      if not primeCheck(p) or not primeCheck(q):
-          print("Error: numbers are not primes")
+      if p==q:
+        print("Error: numbers are identical")
+        
+        
+      if not primeCheck(p):
+        print("Error: p is not a prime")
+
+      if not primeCheck(q):
+        print("Error: q is not a prime")
+        
+      if p <= 100:
+        print("Error: p must be larger than 100")
+        
+      if q <= 100: 
+        print("Error: q must be larger than 100")
+        
+      
       p = input("Enter a large distinct prime p: ")
-      q = input("Enter a large distinct prime q: ")
       p = int(p)
+      q = input("Enter a large distinct prime q: ")
       q = int(q)
+      
+      
+      
+      
+      
     
 
     
