@@ -56,12 +56,15 @@ def publickeys():
     e = input("Enter a value greater than 1 and less than phi:")
     e = int(e)
     
-    while e >= phiN or e <= 1:
+    while e >= phiN or e <= 1 or math.gcd(e,phiN) != 1:
       if e >= phiN:
         print("Error: e is too large")
         
       if e <= 1: 
         print("Error: e is too small")
+        
+      if  math.gcd(e,phiN) != 1:
+        print("Error: e and phi have a non-one common denominator")
         
     
       e = input("Enter a value greater than 1 and less than phi:" )
@@ -69,4 +72,5 @@ def publickeys():
     print("Your e value is:",e)
     
     return p,q,n,e
-          
+      
+      
