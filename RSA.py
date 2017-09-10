@@ -15,6 +15,10 @@ def primeCheck(prime):
   else:
     return False
   
+def privatekey(e, p, q):
+  phiN = phi(p,q)
+  1<d<phiN
+  ed===1 mod phiN
   
         
 def publickeys():
@@ -58,6 +62,6 @@ def publickeys():
       e = int(e)
     print("Your e value is:",e)
     
-    return p,q,n,e
+    return p,q,e
       
       
