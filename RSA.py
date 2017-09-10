@@ -20,6 +20,7 @@ def primeCheck(prime):
 def publickeys():
     p = input("Enter a large distinct prime p: ")
     q = input("Enter a large distinct prime q: ")
+
     p = int(p)
     q = int(q)
     while p==q or not primeCheck(p) or not primeCheck(q) or p <=100 or q <= 100:
@@ -45,13 +46,27 @@ def publickeys():
       p = int(p)
       q = input("Enter a large distinct prime q: ")
       q = int(q)
-      
-      
-      
-      
-      
+    n = p*q  
+    phiN = phi(p,q)
+    print("Your p value is:",p)
+    print("Your q value is:",q)    
+    print("Your n value is:",n)
+    print("Your phi value is:",phiN)
     
-
+    e = input("Enter a value greater than 1 and less than phi:")
+    e = int(e)
     
-  
+    while e >= phiN or e <= 1:
+      if e >= phiN:
+        print("Error: e is too large")
+        
+      if e <= 1: 
+        print("Error: e is too small")
+        
     
+      e = input("Enter a value greater than 1 and less than phi:" )
+      e = int(e)
+    print("Your e value is:",e)
+    
+    return p,q,n,e
+          
