@@ -17,8 +17,24 @@ def primeCheck(prime):
   
 def privatekey(e, p, q):
   phiN = phi(p,q)
-  1<d<phiN
-  ed===1 mod phiN
+ 
+  #ed===1 mod phiN
+  for i in range(1,phiN):
+    if (1==(e*i)%phiN):
+      break
+  print("Your private key d is: ",i)
+  return i    
+  # check this after d is found then offer variations 1<d<phiN
+
+  
+def encryptor():
+  #0 ≤ C < pq and C ≡ M**e (mod pq).
+  #ask for string then deconstruct into encruypted chars and into string array 
+  
+def decryptor():
+  #R ≡ C**d (mod pq) with 0 ≤ R < pq.
+#ask for string then deconstruct into encruypted chars and into string array 
+   
   
         
 def publickeys():
