@@ -1,3 +1,4 @@
+import math
 
 # Make sure both primes just in case 
 def phi(primeone, primetwo):
