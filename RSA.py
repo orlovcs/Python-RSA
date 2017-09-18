@@ -1,4 +1,4 @@
-import math
+import math, random
 
 # Make sure both primes just in case 
 def phi(primeone, primetwo):
@@ -18,14 +18,25 @@ def primeCheck(prime):
 
 def privatekey(e, p, q):
     phiN = phi(p,q)
-
+    i = 0
+    f = 0
     #ed===1 mod phiN
     for i in range(1,phiN):
         if (1==(e*i)%phiN):
             break
-    print("Your private key d is: ",i)
-    return i    
     # check this after d is found then offer variations 1<d<phiN
+    if (1<i<phiN):
+      print("Your private key d is: ",i)
+      return i
+    else:
+      while not (1<i<phiN):
+        for f in range(0,(random.randint(0, 9))):
+          if (1==(e*f)%phiN):
+            break
+      print("Your private key d is: ",f)
+      return f
+   # 37, 107, 997
+   # 3, 107, 101
 
 
 def encryptor():
