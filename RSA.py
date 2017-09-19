@@ -60,7 +60,7 @@ def encryptor(e,p,q):
         
     while j < len(placeholdernum):
         
-        if 0 <= placeholdernum[j]: #and placeholdernum[j] <= n:
+        if 0 <= placeholdernum[j]: 
             encryption.append((placeholdernum[j]**e)%n)
         else:
             print("Please restart the program")
@@ -70,7 +70,7 @@ def encryptor(e,p,q):
     print(" is: ")
     print(encryption)
     return encryption
-    #ask for string then deconstruct into encruypted chars and into string array 
+    #ask for a string then deconstruct into encrypted chars and into string array 
     
     
 def decryptor(secretkey, encryption, p , q):
@@ -106,7 +106,7 @@ def decryptor(secretkey, encryption, p , q):
          
       print("Your encryption is: ", encryption)
       print("Your decryption is: ", decryption)      
-    #ask for string then deconstruct into encruypted chars and into string array 
+    #ask for a string then deconstruct into encrypted chars and into string array 
 
 
 def publickeys():
