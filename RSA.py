@@ -49,13 +49,13 @@ def encryptor(e,p,q):
     n = p * q
     encryption = []
     placeholdernum = []
-    while i < len(placeholder) - 1: 
+    while i < len(placeholder): 
         interem = ord(placeholder[i])
         placeholdernum.append(interem)
         i = i + 1
         
     
-    while j < len(placeholdernum) - 1:
+    while j < len(placeholdernum):
         
         if 0 <= placeholdernum[j]: #and placeholdernum[j] <= n:
             encryption.append((placeholdernum[j]**e)%n)
