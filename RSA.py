@@ -52,10 +52,17 @@ def encryptor(e,p,q):
        print("Please restart the program")
     #ask for string then deconstruct into encruypted chars and into string array 
 
-def decryptor():
+def decryptor(encryptionplaceholder, p , q):
     #R === C**d (mod pq) with 0 <= R < pq.
-#ask for string then deconstruct into encruypted chars and into string array 
-    return 4
+    n = p * q
+    d = input("Enter your secret key d: ")
+    d = int(d)
+    R = (encryptionplaceholder**d) % n
+    if 0 <= R < n:
+      print("You decrypted value for ", encryptionplaceholder, " is: ", chr(R))
+    else:
+       print("Please restart the program")
+    #ask for string then deconstruct into encruypted chars and into string array 
 
 
 def publickeys():
@@ -99,5 +106,5 @@ def publickeys():
         e = int(e)
     print("Your e value is:",e)
 
-    return p,q,e
+    return e,p,q
 
