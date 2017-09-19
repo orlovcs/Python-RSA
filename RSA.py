@@ -38,23 +38,28 @@ def privatekey(e, p, q):
    # 37, 107, 997
    # 3, 107, 101
 
- if placeholdernum <= 32 and placeholdernum >= 122:
 def encryptor(e,p,q):
     #0 <= C < pq and C === M**e (mod pq).
     
-    placeholder = list(input("Enter a word or words you would like encrypted: "))
+    placeholder = list(input("Enter a word or words you would like encrypted (Unicode 0<=p*q): "))
     i = 0
     j = 0
     interem = 0
     n = p * q
     encryption = []
     placeholdernum = []
+    
+    while i < len(placeholder): 
+        if ord(placeholder[i]) <= 32 or ord(placeholder[i]) >= 122:
+          while ord(placeholder[i]) <= 32 or ord(placeholder[i]) >= 122:
+            placeholder = list(input("The value(s) are outside of the range, please re-enter: "))
+        i = i + 1
+    i = 0
     while i < len(placeholder): 
         interem = ord(placeholder[i])
         placeholdernum.append(interem)
         i = i + 1
         
-    
     while j < len(placeholdernum):
         
         if 0 <= placeholdernum[j]: #and placeholdernum[j] <= n:
