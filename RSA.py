@@ -41,17 +41,35 @@ def privatekey(e, p, q):
 
 def encryptor(e,p,q):
     #0 <= C < pq and C === M**e (mod pq).
-    placeholder = input("Enter a letter a-z or A-Z: ")
-    placeholdernum = ord(placeholder)
+    
+    placeholder = list(input("Enter a word or words you would like encrypted: "))
+    i = 0
+    j = 0
+    interem = 0
     n = p * q
-    if 0 <= placeholdernum < n:
-      encryption =  (placeholdernum**e)%n
-      print("Your encrypted value for ", placeholder, " is: ", encryption)
-      return encryption
-    else:
-       print("Please restart the program")
+    encryption = []
+    placeholdernum = []
+    while i < len(placeholder) - 1: 
+        interem = ord(placeholder[i])
+        placeholdernum.append(interem)
+        i = i + 1
+        
+    
+    while j < len(placeholdernum) - 1:
+        
+        if 0 <= placeholdernum[j]: #and placeholdernum[j] <= n:
+            encryption.append((placeholdernum[j]**e)%n)
+        else:
+            print("Please restart the program")
+        j = j + 1    
+    print("Your encrypted value for ")
+    print (placeholder)
+    print(" is: ")
+    print(encryption)
+    return encryption
     #ask for string then deconstruct into encruypted chars and into string array 
-
+    
+    
 def decryptor(encryptionplaceholder, p , q):
     #R === C**d (mod pq) with 0 <= R < pq.
     n = p * q
