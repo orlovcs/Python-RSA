@@ -77,9 +77,12 @@ def decryptor(secretkey, encryption, p , q):
     #R === C**d (mod pq) with 0 <= R < pq.
     true = input("Do you remember your secret key? Y/N: ")
     if true == "Y" or true=="y":
-      n = p * q
       d = input("Enter your secret key d: ")
       d = int(d)
+      if d != secretkey:
+        print("Oops! That's not right, try again!")
+        return decryptor(secretkey, encryption, p , q) 
+      n = p * q
       decryption = []
       i = 0
       while i < len(encryption): 
@@ -89,7 +92,9 @@ def decryptor(secretkey, encryption, p , q):
          
       print("Your encryption is: ", encryption)
       print("Your decryption is: ", decryption)    
+  
     else:
+      print("Your secretkey was: ", secretkey)
       n = p * q
       d = secretkey
       decryption = []
@@ -155,9 +160,9 @@ def main():
   privateD = privatekey(e, p, q)
   print("--------~~~-> Private Key <-~~~--------")
   print("--------~~~-> Encryptor <-~~~--------")
-  encryption = encryptor(privateD, e, p, q)
+  encryption = encryptor(e, p, q)
   print("--------~~~-> Encryptor <-~~~--------")
   print("--------~~~-> Decryptor <-~~~--------")
-  decryptor(encryption, p, q)
+  decryptor(privateD, encryption, p, q)
   print("--------~~~-> Decryptor <-~~~--------")
 
