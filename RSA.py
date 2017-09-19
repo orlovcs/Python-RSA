@@ -48,8 +48,8 @@ def encryptor(e,p,q):
     placeholdernum = []
     
     while i < len(placeholder): 
-        if ord(placeholder[i]) <= 32 or ord(placeholder[i]) >= 122:
-          while ord(placeholder[i]) <= 32 or ord(placeholder[i]) >= 122:
+        if ord(placeholder[i]) < 0 or ord(placeholder[i]) > 122:
+          while ord(placeholder[i]) < 0 or ord(placeholder[i]) > 122:
             placeholder = list(input("The value(s) are outside of the range, please re-enter: "))
         i = i + 1
     i = 0
