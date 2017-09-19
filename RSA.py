@@ -89,8 +89,8 @@ def decryptor(encryptionplaceholder, p , q):
 
 
 def publickeys():
-    p = input("Enter a large distinct prime p: ")
-    q = input("Enter a large distinct prime q: ")
+    p = input("Enter a large distinct prime p (100 and greater): ")
+    q = input("Enter a large distinct prime q (100 and greater): ")
     p = int(p)
     q = int(q)
     while p==q or not primeCheck(p) or not primeCheck(q) or p <=100 or q <= 100:
