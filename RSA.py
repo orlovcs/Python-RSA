@@ -38,7 +38,7 @@ def privatekey(e, p, q):
    # 37, 107, 997
    # 3, 107, 101
 
-
+ if placeholdernum <= 32 and placeholdernum >= 122:
 def encryptor(e,p,q):
     #0 <= C < pq and C === M**e (mod pq).
     
