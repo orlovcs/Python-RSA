@@ -73,23 +73,34 @@ def encryptor(e,p,q):
     #ask for string then deconstruct into encruypted chars and into string array 
     
     
-def decryptor(encryption, p , q):
+def decryptor(secretkey, encryption, p , q):
     #R === C**d (mod pq) with 0 <= R < pq.
-    
-    n = p * q
-    d = input("Enter your secret key d: ")
-    d = int(d)
-    decryption = []
-    placeholdernum = []
-    i = 0
-    while i < len(encryption): 
-        interem = (encryption[i]**d) % n
-        decryption.append(chr(interem))
-        i = i + 1
-        
-    print("Your encryption is: ", encryption)
-    print("Your decryption is: ", decryption)    
-
+    true = input("Do you remember your secret key? Y/N: ")
+    if true == "Y" or true=="y":
+      n = p * q
+      d = input("Enter your secret key d: ")
+      d = int(d)
+      decryption = []
+      i = 0
+      while i < len(encryption): 
+         interem = (encryption[i]**d) % n
+         decryption.append(chr(interem))
+         i = i + 1
+         
+      print("Your encryption is: ", encryption)
+      print("Your decryption is: ", decryption)    
+    else:
+      n = p * q
+      d = secretkey
+      decryption = []
+      i = 0
+      while i < len(encryption): 
+         interem = (encryption[i]**d) % n
+         decryption.append(chr(interem))
+         i = i + 1
+         
+      print("Your encryption is: ", encryption)
+      print("Your decryption is: ", decryption)      
     #ask for string then deconstruct into encruypted chars and into string array 
 
 
@@ -144,7 +155,7 @@ def main():
   privateD = privatekey(e, p, q)
   print("--------~~~-> Private Key <-~~~--------")
   print("--------~~~-> Encryptor <-~~~--------")
-  encryption = encryptor(e, p, q)
+  encryption = encryptor(privateD, e, p, q)
   print("--------~~~-> Encryptor <-~~~--------")
   print("--------~~~-> Decryptor <-~~~--------")
   decryptor(encryption, p, q)
