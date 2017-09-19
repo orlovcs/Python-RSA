@@ -135,10 +135,22 @@ def publickeys():
     print("Your p value is:",p)
     print("Your q value is:",q)    
     print("Your n value is:",n)
-    print("Your phi value is:",phiN)
-
-    e = input("Enter a value greater than 1 and less than phi:")
+    print("Your phi(n) value is:",phiN)
+    
+    print("--------~~~-> Suggestions for e <-~~~--------")
+    erange = input("Enter an upper boundary for e suggestions: ")
+    erange = int(erange)
+    print("Possibilities: ")
+    for x in range(1,erange):
+      if math.gcd(x,phiN) == 1:
+        print(x)
+    print("--------~~~-> Suggestions for e <-~~~--------")
+    
+    e = input("Enter a value e greater than 1 and less than phi(N):")
     e = int(e)
+
+
+
     while e >= phiN or e <= 1 or math.gcd(e,phiN) != 1:
         if e >= phiN:
             print("Error: e is too large")
@@ -165,4 +177,3 @@ def main():
   print("--------~~~-> Decryptor <-~~~--------")
   decryptor(privateD, encryption, p, q)
   print("--------~~~-> Decryptor <-~~~--------")
-
