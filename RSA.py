@@ -105,6 +105,20 @@ def publickeys():
         e = input("Enter a value greater than 1 and less than phi:" )
         e = int(e)
     print("Your e value is:",e)
-
     return e,p,q
+
+
+def main():
+  print("--------~~~-> Public Keys <-~~~--------")
+  e, p, q = publickeys()
+  print("--------~~~-> Public Keys <-~~~--------")
+  print("--------~~~-> Private Key <-~~~--------")
+  privateD = privatekey(e, p, q)
+  print("--------~~~-> Private Key <-~~~--------")
+  print("--------~~~-> Encryptor <-~~~--------")
+  encryptedChar = encryptor(e, p, q)
+  print("--------~~~-> Encryptor <-~~~--------")
+  print("--------~~~-> Decryptor <-~~~--------")
+  decryptor(encryptedChar, p, q)
+  print("--------~~~-> Decryptor <-~~~--------")
 
